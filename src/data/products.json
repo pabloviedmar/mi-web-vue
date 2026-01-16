@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "NVIDIA RTX 4090",
+    "price": 1599.99,
+    "category": "GPU",
+    "image": "https://placehold.co/400x300/1e293b/b026ff?text=RTX+4090",
+    "description": "The ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics."
+  },
+  {
+    "id": 2,
+    "name": "Intel Core i9-13900K",
+    "price": 589.99,
+    "category": "CPU",
+    "image": "https://placehold.co/400x300/1e293b/39ff14?text=Intel+i9",
+    "description": "24 cores (8 P-cores + 16 E-cores) and up to 5.8 GHz max clock speed."
+  },
+  {
+    "id": 3,
+    "name": "Corsair Vengeance 32GB DDR5",
+    "price": 129.99,
+    "category": "RAM",
+    "image": "https://placehold.co/400x300/1e293b/b026ff?text=DDR5+RAM",
+    "description": "Push the limits of your system with DDR5 memory that unlocks faster frequencies."
+  },
+  {
+    "id": 4,
+    "name": "Samsung 990 PRO 2TB SSD",
+    "price": 179.99,
+    "category": "Storage",
+    "image": "https://placehold.co/400x300/1e293b/39ff14?text=2TB+SSD",
+    "description": "Reach max performance of PCIe 4.0. Experience long-lasting, opponent-blasting speed."
+  },
+  {
+    "id": 5,
+    "name": "Logitech G Pro X Keyboard",
+    "price": 149.99,
+    "category": "Peripherals",
+    "image": "https://placehold.co/400x300/1e293b/b026ff?text=Mechanical+KB",
+    "description": "Compact mechanical gaming keyboard with user-swappable pro-grade switches."
+  },
+  {
+    "id": 6,
+    "name": "Razer DeathAdder V3 Pro",
+    "price": 149.99,
+    "category": "Peripherals",
+    "image": "https://placehold.co/400x300/1e293b/39ff14?text=Gaming+Mouse",
+    "description": "Ultra-lightweight wireless ergonomic esports mouse."
+  },
+  {
+    "id": 7,
+    "name": "ASUS ROG Strix Z790-E",
+    "price": 499.99,
+    "category": "Motherboard",
+    "image": "https://placehold.co/400x300/1e293b/b026ff?text=Motherboard",
+    "description": "The fastest motherboard for your new Intel 13th/14th Gen processor."
+  }
+]
