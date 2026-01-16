@@ -67,6 +67,10 @@ const handleLogin = async () => {
           {{ loading ? 'Logging in...' : 'Login' }}
         </button>
       </form>
+
+      <div class="mt-4 text-center">
+        <p class="text-gray-400">Don't have an account? <router-link to="/register" class="text-neon-purple hover:underline">Create an Account</router-link></p>
+      </div>
     </div>
   </div>
 </template>
