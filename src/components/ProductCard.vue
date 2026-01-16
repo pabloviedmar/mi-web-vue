@@ -1,5 +1,6 @@
 <script setup>
 import { ShoppingCart } from 'lucide-vue-next';
+import { useRouter } from 'vue-router';
 import { useCartStore } from '../stores/cart';
 
 const props = defineProps({
@@ -9,15 +10,24 @@ const props = defineProps({
   }
 });
 
+const router = useRouter();
 const cartStore = useCartStore();
 
-const addToCart = () => {
+const addToCart = (e) => {
+  e.stopPropagation();
   cartStore.addToCart(props.product);
+};
+
+const goToDetail = () => {
+  router.push(`/product/${props.product.id}`);
 };
 </script>
 
 <template>
-  <div class="bg-card-bg rounded-lg overflow-hidden shadow-lg border border-white/5 hover:border-neon-purple/50 transition-all duration-300 flex flex-col h-full group">
+  <div
+    @click="goToDetail"
+    class="bg-card-bg rounded-lg overflow-hidden shadow-lg border border-white/5 hover:border-neon-purple/50 transition-all duration-300 flex flex-col h-full group cursor-pointer"
+  >
     <div class="relative overflow-hidden aspect-video">
       <img
         :src="product.image"

@@ -1,10 +1,22 @@
 <script setup>
-import { computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 import ProductCard from '../components/ProductCard.vue';
-import products from '../data/products.json';
+import { ProductService } from '../services/ProductService';
 
-const featuredProducts = computed(() => products.slice(0, 4));
+const featuredProducts = ref([]);
+const loading = ref(true);
+
+onMounted(async () => {
+  try {
+    const products = await ProductService.getProducts();
+    featuredProducts.value = products.slice(0, 4);
+  } catch (error) {
+    console.error('Failed to load featured products:', error);
+  } finally {
+    loading.value = false;
+  }
+});
 </script>
 
 <template>
@@ -35,7 +47,11 @@ const featuredProducts = computed(() => products.slice(0, 4));
         <RouterLink to="/catalog" class="text-neon-purple hover:text-white transition-colors">View All &rarr;</RouterLink>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div v-if="loading" class="text-center py-20 text-gray-400">
+        Loading featured products...
+      </div>
+
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <ProductCard
           v-for="product in featuredProducts"
           :key="product.id"

@@ -1,9 +1,11 @@
 <script setup>
-import { ShoppingCart } from 'lucide-vue-next';
+import { ShoppingCart, User, LogOut } from 'lucide-vue-next';
 import { RouterLink } from 'vue-router';
 import { useCartStore } from '../stores/cart';
+import { useAuthStore } from '../stores/auth';
 
 const cartStore = useCartStore();
+const authStore = useAuthStore();
 </script>
 
 <template>
@@ -16,6 +18,17 @@ const cartStore = useCartStore();
       <div class="flex items-center gap-6 font-medium">
         <RouterLink to="/" class="hover:text-neon-purple transition-colors">Home</RouterLink>
         <RouterLink to="/catalog" class="hover:text-neon-purple transition-colors">Catalog</RouterLink>
+
+        <div v-if="authStore.isAuthenticated" class="flex items-center gap-4">
+          <span class="text-gray-300 flex items-center gap-2">
+            <User class="w-4 h-4 text-neon-purple" />
+            {{ authStore.user.name }}
+          </span>
+          <button @click="authStore.logout" class="text-gray-400 hover:text-white transition-colors" title="Logout">
+            <LogOut class="w-5 h-5" />
+          </button>
+        </div>
+        <RouterLink v-else to="/login" class="hover:text-neon-purple transition-colors">Login</RouterLink>
 
         <RouterLink to="/cart" class="relative group">
           <ShoppingCart class="w-6 h-6 group-hover:text-neon-green transition-colors" />
